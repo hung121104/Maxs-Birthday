@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="./js/speachHandler.js"></script>
+
+    <style>
+      #textOverlay {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        z-index: 1000;
+        text-align: center;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="textOverlay"></div>
+    <a-scene
+      mindar-image="imageTargetSrc: ./marker/targets.mind"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets>
+        <img id="card-1" src="./markers_img/zani-is-so-me-v0-miukmd3nny0f1.webp" />
+        <a-asset-item id="Model-1" src="./models/robot.glb"></a-asset-item>
+
+        <img id="card-2" src="./markers_img/119373955_p0.png" />
+        <a-asset-item id="Model-2" src="./models/fish.glb"></a-asset-item>
+
+        <img id="card-3" src="./markers_img/GAnH76vasAEuHEO.jpg" />
+        <a-asset-item id="Model-3" src="./models/shibahu.glb"></a-asset-item>
+
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane
+          src="#card-1"
+          position="0 0 0"
+          height="0.552"
+          width="1"
+          rotation="0 0 0"
+        ></a-plane>
+        <a-gltf-model
+          rotation="-90 180 0"
+          position="0 0 0"
+          scale="0.25 0.25 0.25"
+          src="#Model-1"
+          animation-mixer="clip: *;"
+        >
+        </a-gltf-model>
+      </a-entity>
+
+       <a-entity mindar-image-target="targetIndex: 1">
+        <a-plane
+          src="#card-2"
+          position="0 0 0"
+          height="0.552"
+          width="1"
+          rotation="0 0 0"
+        ></a-plane>
+        <a-gltf-model
+          rotation="-90 180 0"
+          position="0 0 0"
+          scale="0.25 0.25 0.25"
+          src="#Model-2"
+          animation-mixer="clip: *;"
+        >
+        </a-gltf-model>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-plane
+          src="#card-3"
+          position="0 0 0"
+          height="0.552"
+          width="1"
+          rotation="0 0 0"
+        ></a-plane>
+        <a-gltf-model
+          rotation="90 0 0"
+          position="0 0 0"
+          scale="1 1 1"
+          src="#Model-3"
+          animation-mixer="clip: *;"
+        >
+        </a-gltf-model>
+      </a-entity>
+
+    </a-scene>   
+  </body>
+</html>
