@@ -61,8 +61,8 @@ AFRAME.registerComponent("lazy-loader", {
 document.addEventListener("DOMContentLoaded", () => {
   const modelConfigs = {
     "target-0": {
-      modelUrl: "https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/models/robot.glb",
-      imageUrl: "https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/markers_img/zani-is-so-me-v0-miukmd3nny0f1.webp",
+      modelUrl: "./models/robot.glb",
+      imageUrl: "./markers_img/zani-is-so-me-v0-miukmd3nny0f1.webp",
       scale: "0.25 0.25 0.25",
       speechText: "Hello! I am your AR robot guide.",
       voiceLang: "en-US",
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
       voiceRate: 0.8
     },
     "target-1": {
-      modelUrl: "https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/models/fish.glb",
-      imageUrl: "https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/markers_img/119373955_p0.png",
+      modelUrl: "./models/fish.glb",
+      imageUrl: "./markers_img/119373955_p0.png",
       speechText: "This is a beautiful fish swimming in the ocean.",
       voiceLang: "ja-JP",
       voiceName: "Microsoft Hazel", 
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
       voiceRate: 0.7
     },
     "target-2": {
-      modelUrl: "https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/models/shibahu.glb",
-      imageUrl: "https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/markers_img/GAnH76vasAEuHEO.jpg",
+      modelUrl: "./models/shibahu.glb",
+      imageUrl: "./markers_img/GAnH76vasAEuHEO.jpg",
       speechText: "Meet my friend Shiba!",
       voiceLang: "en-US",
       voiceName: "Microsoft David", 
