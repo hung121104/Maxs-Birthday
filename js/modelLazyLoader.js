@@ -15,7 +15,7 @@ AFRAME.registerComponent("lazy-loader", {
     voiceLang: { type: "string", default: "en-US" },
     voiceName: { type: "string", default: "" },
     voicePitch: { type: "number", default: 1 },
-    voiceRate: { type: "number", default: 0.7 }
+    voiceRate: { type: "number", default: 0.7 },
   },
   init: function () {
     // Create speech handler instance
@@ -24,7 +24,7 @@ AFRAME.registerComponent("lazy-loader", {
       lang: this.data.voiceLang,
       name: this.data.voiceName,
       pitch: this.data.voicePitch,
-      rate: this.data.voiceRate
+      rate: this.data.voiceRate,
     });
 
     this.el.addEventListener("targetFound", () => {
@@ -66,28 +66,28 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: "0.25 0.25 0.25",
       speechText: "Hello! I am your AR robot guide.",
       voiceLang: "en-US",
-      voiceName: "Microsoft David", 
+      voiceName: "Microsoft David",
       voicePitch: 1.2,
-      voiceRate: 0.8
+      voiceRate: 0.8,
     },
     "target-1": {
       modelUrl: "./models/fish.glb",
       imageUrl: "./markers_img/119373955_p0.png",
       speechText: "This is a beautiful fish swimming in the ocean.",
       voiceLang: "ja-JP",
-      voiceName: "Microsoft Hazel", 
+      voiceName: "Microsoft Hazel",
       voicePitch: 1.1,
-      voiceRate: 0.7
+      voiceRate: 0.7,
     },
     "target-2": {
       modelUrl: "./models/shibahu.glb",
       imageUrl: "./markers_img/GAnH76vasAEuHEO.jpg",
       speechText: "Meet my friend Shiba!",
       voiceLang: "en-US",
-      voiceName: "Microsoft David", 
+      voiceName: "Microsoft David",
       voicePitch: 0.9,
-      voiceRate: 0.75
-    }
+      voiceRate: 0.75,
+    },
   };
 
   Object.entries(modelConfigs).forEach(([targetId, config]) => {
@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
 
 // function listAvailableVoices() {
 //   speechSynthesis.addEventListener('voiceschanged', () => {
@@ -112,3 +111,4 @@ document.addEventListener("DOMContentLoaded", () => {
 //   speechSynthesis.getVoices();
 // }
 // listAvailableVoices();
+//

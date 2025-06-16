@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="./js/speachHandler.js"></script>
     <script src="./js/modelLazyLoader.js"></script>
-
+    //
     <style>
       #textOverlay {
         position: fixed;
@@ -22,7 +22,7 @@
         z-index: 1000;
         display: none;
         max-width: 90%;
-        line-height: 1.5; 
+        line-height: 1.5;
         font-family: Arial, sans-serif;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       }
@@ -37,7 +37,6 @@
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false"
     >
-
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0" id="target-0"></a-entity>
@@ -45,7 +44,6 @@
       <a-entity mindar-image-target="targetIndex: 1" id="target-1"></a-entity>
 
       <a-entity mindar-image-target="targetIndex: 2" id="target-2"></a-entity>
-      
     </a-scene>
   </body>
 </html>
