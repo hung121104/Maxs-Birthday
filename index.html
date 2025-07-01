@@ -26,12 +26,28 @@
         font-family: Arial, sans-serif;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       }
+
+      #loading {
+        
+        display: block;
+        color: #000;
+        font-size: 2em;
+        text-align: center;
+        margin-top: 40vh;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+      }
+      #loading.hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div id="textOverlay"></div>
+    <div id="loading">Wait a bit for Max</div>
     <a-scene
-      mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hung121104/Maxs-Birthday@main/marker/targets.mind"
+      uiLoading:no
+      mindar-image="uiLoading: #loading; uiScanning:no; imageTargetSrc: ./marker/targets.mind"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
