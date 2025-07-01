@@ -87,20 +87,22 @@ class SpeechHandler {
       this.display.style.display = "block";
       this.updateDisplay();
     }
-    if (!this.utterance) {
-      this.setupSpeech();
-    }
-    if (this.utterance) {
-      speechSynthesis.cancel();
-      speechSynthesis.speak(this.utterance);
-    }
+    // Disable speech synthesis
+    // if (!this.utterance) {
+    //   this.setupSpeech();
+    // }
+    // if (this.utterance) {
+    //   speechSynthesis.cancel();
+    //   speechSynthesis.speak(this.utterance);
+    // }
   }
 
   stop() {
+    // Hide the display when target is lost
     if (this.display) {
       this.display.style.display = "none";
-      this.currentIndex = 0;
     }
-    speechSynthesis.cancel();
+    // this.currentIndex = 0;
+    // speechSynthesis.cancel();
   }
 }

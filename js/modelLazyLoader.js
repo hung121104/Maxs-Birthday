@@ -2,12 +2,12 @@ AFRAME.registerComponent("lazy-loader", {
   schema: {
     modelUrl: { type: "string" },
     modelPosition: { type: "string", default: "0 0 0" },
-    modelRotation: { type: "string", default: "90 0 0" },
+    modelRotation: { type: "string", default: "0 0 0" },
     scale: { type: "string", default: "1 1 1" },
 
     imageUrl: { type: "string" },
     imagePosition: { type: "string", default: "0 0 0" },
-    imageheight: { type: "string", default: "1" },
+    imageheight: { type: "string", default: "0.5" },
     imageWidth: { type: "string", default: "1" },
     imageRotation: { type: "string", default: "0 0 0" },
 
@@ -20,6 +20,7 @@ AFRAME.registerComponent("lazy-loader", {
   init: function () {
     // Create speech handler instance
     const display = document.getElementById("textOverlay");
+    console.log("SpeechHandler init", this.data.speechText, display);
     this.speechHandler = new SpeechHandler(this.data.speechText, display, {
       lang: this.data.voiceLang,
       name: this.data.voiceName,
@@ -61,28 +62,36 @@ AFRAME.registerComponent("lazy-loader", {
 document.addEventListener("DOMContentLoaded", () => {
   const modelConfigs = {
     "target-0": {
-      modelUrl: "./models/robot.glb",
-      imageUrl: "./markers_img/zani-is-so-me-v0-miukmd3nny0f1.webp",
+      modelUrl: "./models/con_tho.glb",
+      imageUrl: "./markers_img/RE(3).webp",
+      modelRotation: "90 0 0",
       scale: "0.25 0.25 0.25",
-      speechText: "Hello! I am your AR robot guide.",
+      modelPosition: "0.12 0 0.25",//x y z
+      speechText: "Hello! I am Bunny.",
       voiceLang: "en-US",
       voiceName: "Microsoft David",
       voicePitch: 1.2,
       voiceRate: 0.8,
     },
     "target-1": {
-      modelUrl: "./models/fish.glb",
-      imageUrl: "./markers_img/119373955_p0.png",
-      speechText: "This is a beautiful fish swimming in the ocean.",
+      modelUrl: "./models/con_ham_to.glb",
+      imageUrl: "./markers_img/RE(4).webp",
+      scale: "0.17 0.17 0.17",
+      modelRotation: "20 90 90",
+      modelPosition: "-0.20 0 0.25",//x y z
+      speechText: "I am a hamster.",
       voiceLang: "ja-JP",
       voiceName: "Microsoft Hazel",
       voicePitch: 1.1,
       voiceRate: 0.7,
     },
     "target-2": {
-      modelUrl: "./models/shibahu.glb",
-      imageUrl: "./markers_img/GAnH76vasAEuHEO.jpg",
-      speechText: "Meet my friend Shiba!",
+      modelUrl: "./models/con_ca.glb",
+      imageUrl: "./markers_img/RE(5).webp",
+      scale: "0.2 0.2 0.2",
+      modelRotation: "20 90 90",
+      modelPosition: "-0.20 0 0.25",//x y z
+      speechText: "I am fish.",
       voiceLang: "en-US",
       voiceName: "Microsoft David",
       voicePitch: 0.9,
@@ -111,4 +120,3 @@ document.addEventListener("DOMContentLoaded", () => {
 //   speechSynthesis.getVoices();
 // }
 // listAvailableVoices();
-//
