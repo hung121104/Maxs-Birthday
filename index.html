@@ -26,9 +26,25 @@
         font-family: Arial, sans-serif;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       }
+      #time-restriction-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 2000;
+        display: none;
+        color: white;
+        font-size: 2em;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
 
       #loading {
-        
         display: block;
         color: #000;
         font-size: 2em;
@@ -44,6 +60,7 @@
   </head>
   <body>
     <div id="textOverlay"></div>
+    <div id="time-restriction-overlay"></div>
     <div id="loading">Wait a bit for Max</div>
     <a-scene
       uiLoading:no
@@ -61,5 +78,6 @@
 
       <a-entity mindar-image-target="targetIndex: 2" id="target-2"></a-entity>
     </a-scene>
+    <script src="./js/userRestriction.js"></script>
   </body>
 </html>
