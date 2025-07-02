@@ -63,7 +63,7 @@
     <div id="loading">Wait a bit for Max</div>
     <a-scene
       uiLoading:no
-      mindar-image="uiLoading: #loading; uiScanning:no; imageTargetSrc: ./marker/targets.mind"
+      mindar-image="filterMinCF:0.0001; filterBeta: 0.004; uiLoading: #loading; uiScanning:no;  imageTargetSrc: ./marker/targets.mind"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
