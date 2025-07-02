@@ -1,6 +1,6 @@
 // Configuration
 const USAGE_LIMIT_MINUTES = 1;
-const LOCKOUT_MINUTES = 1;
+const LOCKOUT_MINUTES = 0.5;
 const USAGE_LIMIT_MS = USAGE_LIMIT_MINUTES * 60 * 1000;
 
 // DOM elements
@@ -10,29 +10,32 @@ const loading = document.getElementById("loading");
 const scene = document.querySelector("a-scene");
 
 // Helper functions
+function shouldHideTextOverlay() {
+  return !(window.arOverlayActive === true);
+}
 function showOverlay(msg) {
   overlay.innerHTML = msg;
   overlay.style.display = "flex";
-  if (textOverlay) textOverlay.style.display = "none";
+  if (textOverlay && shouldHideTextOverlay()) textOverlay.style.display = "none";
   if (loading) loading.style.display = "none";
   if (scene) scene.style.display = "none";
 }
 function showUsageTimer(msg) {
   overlay.innerHTML = msg;
   overlay.style.display = "flex";
-  if (textOverlay) textOverlay.style.display = "none";
+  if (textOverlay && shouldHideTextOverlay()) textOverlay.style.display = "none";
   if (loading) loading.style.display = "none";
 }
 function hideOverlay() {
   overlay.style.display = "none";
-  if (textOverlay) textOverlay.style.display = "";
+  if (textOverlay && shouldHideTextOverlay()) textOverlay.style.display = "";
   if (loading) loading.style.display = "";
   if (scene) scene.style.display = "";
 }
 function hideSceneAndLoading() {
   if (scene) scene.style.display = "none";
   if (loading) loading.style.display = "none";
-  if (textOverlay) textOverlay.style.display = "none";
+  if (textOverlay && shouldHideTextOverlay()) textOverlay.style.display = "none";
 }
 function showSceneAndLoading() {
   if (scene) scene.style.display = "";
@@ -58,7 +61,7 @@ function startLockoutTimer() {
     if (lockoutUntil && now < parseInt(lockoutUntil, 10)) {
       const msLeft = parseInt(lockoutUntil, 10) - now;
       showOverlay(
-        `Max is tired. Come back with max in ${formatTime(msLeft)}`
+        `Max is tired. He'll be back in ${formatTime(msLeft)}`
       );
     } else {
       clearInterval(lockoutInterval);
@@ -98,6 +101,7 @@ function clearUsageState() {
 }
 
 function startUsageTimer() {
+  clearUsageState(); 
   loadUsageState();
   showSceneAndLoading();
   overlay.style.display = "block";
@@ -115,7 +119,7 @@ function startUsageTimer() {
       // Set lockout
       const lockoutUntil = getNow() + LOCKOUT_MINUTES * 60 * 1000;
       localStorage.setItem("lockoutUntil", lockoutUntil);
-      clearUsageState();
+      // Do NOT clear usage state here
       startLockoutTimer();
       clearInterval(usageInterval);
     }

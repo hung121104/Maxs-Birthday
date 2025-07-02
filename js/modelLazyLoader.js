@@ -11,24 +11,14 @@ AFRAME.registerComponent("lazy-loader", {
     imageWidth: { type: "string", default: "1" },
     imageRotation: { type: "string", default: "0 0 0" },
 
-    speechText: { type: "string", default: "" },
-    voiceLang: { type: "string", default: "en-US" },
-    voiceName: { type: "string", default: "" },
-    voicePitch: { type: "number", default: 1 },
-    voiceRate: { type: "number", default: 0.7 },
+    displayText: { type: "string", default: "" },
   },
   init: function () {
-    // Create speech handler instance
     const display = document.getElementById("textOverlay");
-    console.log("SpeechHandler init", this.data.speechText, display);
-    this.speechHandler = new SpeechHandler(this.data.speechText, display, {
-      lang: this.data.voiceLang,
-      name: this.data.voiceName,
-      pitch: this.data.voicePitch,
-      rate: this.data.voiceRate,
-    });
+    const textHandler = new TextOverlayHandler(this.data.displayText, display);
 
     this.el.addEventListener("targetFound", () => {
+      window.arOverlayActive = true;
       if (!this.modelLoaded) {
         // Load 3D model
         const model = document.createElement("a-gltf-model");
@@ -50,11 +40,13 @@ AFRAME.registerComponent("lazy-loader", {
 
         this.modelLoaded = true;
       }
-      this.speechHandler.start();
+      textHandler.updateDisplay(); 
+      textHandler.show(); 
     });
 
     this.el.addEventListener("targetLost", () => {
-      this.speechHandler.stop();
+      window.arOverlayActive = false;
+      textHandler.hide(); 
     });
   },
 });
@@ -64,26 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
     "target-0": {
       modelUrl: "./models/con_tho.glb",
       imageUrl: "./markers_img/RE(3).webp",
-      modelRotation: "90 0 0",
+      modelRotation: "0 0 0",
       scale: "0.25 0.25 0.25",
       modelPosition: "0.12 0 0.25",//x y z
-      speechText: "Hello! I am Bunny.",
-      voiceLang: "en-US",
-      voiceName: "Microsoft David",
-      voicePitch: 1.2,
-      voiceRate: 0.8,
+      displayText: "Hello! I am Bunny.",
     },
     "target-1": {
       modelUrl: "./models/con_ham_to.glb",
       imageUrl: "./markers_img/RE(4).webp",
       scale: "0.17 0.17 0.17",
-      modelRotation: "20 90 90",
+      modelRotation: "0 0 0",
       modelPosition: "-0.20 0 0.25",//x y z
-      speechText: "I am a hamster.",
-      voiceLang: "ja-JP",
-      voiceName: "Microsoft Hazel",
-      voicePitch: 1.1,
-      voiceRate: 0.7,
+      displayText: "I am a hamster.",
     },
     "target-2": {
       modelUrl: "./models/con_ca.glb",
@@ -91,11 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: "0.2 0.2 0.2",
       modelRotation: "20 90 90",
       modelPosition: "-0.20 0 0.25",//x y z
-      speechText: "I am fish.",
-      voiceLang: "en-US",
-      voiceName: "Microsoft David",
-      voicePitch: 0.9,
-      voiceRate: 0.75,
+      displayText: "I am fish.",
     },
   };
 
