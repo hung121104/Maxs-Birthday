@@ -54,7 +54,7 @@ AFRAME.registerComponent("lazy-loader", {
 document.addEventListener("DOMContentLoaded", () => {
   const modelConfigs = {
     "target-0": {
-      modelUrl: "./models/con_tho.glb",
+      modelUrl: "./models/con_tho2.glb",
       imageUrl: "./markers_img/RE(3).webp",
       modelRotation: "0 0 0",
       scale: "0.25 0.25 0.25",
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: "0.17 0.17 0.17",
       modelRotation: "0 0 0",
       modelPosition: "-0.20 0 0.25",//x y z
-      displayText: "I am a hamster.",
+      displayText: "I am a Hamster.",
     },
     "target-2": {
       modelUrl: "./models/con_ca.glb",
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: "0.2 0.2 0.2",
       modelRotation: "20 90 90",
       modelPosition: "-0.20 0 0.25",//x y z
-      displayText: "I am fish.",
+      displayText: "I am Goldie.",
     },
   };
 
