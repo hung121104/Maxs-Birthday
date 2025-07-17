@@ -40,13 +40,13 @@ AFRAME.registerComponent("lazy-loader", {
 
         this.modelLoaded = true;
       }
-      textHandler.updateDisplay(); 
-      textHandler.show(); 
+      textHandler.updateDisplay();
+      textHandler.show();
     });
 
     this.el.addEventListener("targetLost", () => {
       window.arOverlayActive = false;
-      textHandler.hide(); 
+      textHandler.hide();
     });
   },
 });
@@ -58,15 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
       imageUrl: "./markers_img/RE(3).webp",
       modelRotation: "0 0 0",
       scale: "0.25 0.25 0.25",
-      modelPosition: "0.12 0 0.25",//x y z
+      modelPosition: "0.12 0 0.25", //x y z
       displayText: "Hello! I am Bunny.",
     },
     "target-1": {
-      modelUrl: "./models/con_ham_to.glb",
+      modelUrl: "./models/b_hamto_dong.glb",
       imageUrl: "./markers_img/RE(4).webp",
       scale: "0.17 0.17 0.17",
       modelRotation: "0 0 0",
-      modelPosition: "-0.20 0 0.25",//x y z
+      modelPosition: "-0.20 0 0.25", //x y z
       displayText: "I am a Hamster.",
     },
     "target-2": {
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imageUrl: "./markers_img/RE(5).webp",
       scale: "0.2 0.2 0.2",
       modelRotation: "20 90 90",
-      modelPosition: "-0.20 0 0.25",//x y z
+      modelPosition: "-0.20 0 0.25", //x y z
       displayText: "I am Goldie.",
     },
   };
