@@ -68,6 +68,7 @@ function startLockoutTimer() {
       localStorage.removeItem("lockoutUntil");
       hideOverlay();
       showSceneAndLoading();
+      clearUsageState(); // <-- Add this line
       startUsageTimer();
     }
   }, 1000);
@@ -100,9 +101,21 @@ function clearUsageState() {
   localStorage.removeItem("usageLastHidden");
 }
 
+function regenerateUsageTimeIfNeeded() {
+  if (lastHidden && remainingTime > 0) {
+    const now = getNow();
+    const awayTime = now - lastHidden;
+    const bonus = Math.floor(awayTime / 4); // Or your preferred rate
+    remainingTime = Math.min(USAGE_LIMIT_MS, remainingTime + bonus);
+    saveUsageState();
+    lastHidden = null; // Reset after applying
+    localStorage.setItem("usageLastHidden", "");
+  }
+}
+
 function startUsageTimer() {
-  clearUsageState(); 
   loadUsageState();
+  regenerateUsageTimeIfNeeded(); // <-- Add this line
   showSceneAndLoading();
   overlay.style.display = "block";
   if (usageInterval) clearInterval(usageInterval);
@@ -163,5 +176,12 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
   startUsageTimer();
+});
+
+window.addEventListener("beforeunload", () => {
+  if (document.visibilityState === "visible") {
+    lastHidden = getNow();
+    saveUsageState();
+  }
 });
 
