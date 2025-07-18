@@ -7,23 +7,31 @@
     <script src="./js/speachHandler.js"></script>
     <script src="./js/modelLazyLoader.js"></script>
     <style>
-      #textOverlay {
+
+      #overlayWrapper {
         position: fixed;
-        bottom: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 1.2em;
-        border-radius: 8px;
-        font-size: 1.3em;
-        text-align: start;
+        bottom: 10%;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
         z-index: 1000;
+        pointer-events: none;
+      }
+
+      #textOverlay {
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 0.5em;
+        border-radius: 8px;
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        text-align: start;
         display: none;
-        max-width: 90%;
+        width: clamp(85vw, 80vw, 700px);
         line-height: 1.5;
         font-family: Arial, sans-serif;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        pointer-events: auto;
       }
       #time-restriction-overlay {
         position: fixed;
@@ -58,7 +66,9 @@
     </style>
   </head>
   <body>
-    <div id="textOverlay"></div>
+    <div id="overlayWrapper">
+      <div id="textOverlay"></div>
+    </div>
     <div id="time-restriction-overlay"></div>
     <div id="loading">Wait a bit for Max</div>
     <a-scene
