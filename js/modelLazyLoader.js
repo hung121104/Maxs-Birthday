@@ -29,14 +29,14 @@ AFRAME.registerComponent("lazy-loader", {
         model.setAttribute("animation-mixer", "clip: *;");
         this.el.appendChild(model);
 
-        // Load image
-        const image = document.createElement("a-plane");
-        image.setAttribute("src", this.data.imageUrl);
-        image.setAttribute("position", this.data.imagePosition);
-        image.setAttribute("height", this.data.imageheight);
-        image.setAttribute("width", this.data.imageWidth);
-        image.setAttribute("rotation", this.data.imageRotation);
-        this.el.appendChild(image);
+        // // Load image
+        // const image = document.createElement("a-plane");
+        // image.setAttribute("src", this.data.imageUrl);
+        // image.setAttribute("position", this.data.imagePosition);
+        // image.setAttribute("height", this.data.imageheight);
+        // image.setAttribute("width", this.data.imageWidth);
+        // image.setAttribute("rotation", this.data.imageRotation);
+        // this.el.appendChild(image);
 
         this.modelLoaded = true;
       }
@@ -54,28 +54,44 @@ AFRAME.registerComponent("lazy-loader", {
 document.addEventListener("DOMContentLoaded", () => {
   const modelConfigs = {
     "target-0": {
-      modelUrl: "./models/con_tho2.glb",
-      imageUrl: "./markers_img/RE(3).webp",
+      modelUrl: "./models/MAX.glb",
+      // imageUrl: "./markers_img/RE(3).webp",
       modelRotation: "0 0 0",
-      scale: "0.25 0.25 0.25",
-      modelPosition: "0.12 0 0.25", //x y z
-      displayText: "Hello! I am Bunny.",
+      scale: "0.2 0.2 0.2",
+      modelPosition: "0 0 0.25", //x y z
+      displayText: "Today is my birthday! Let’s invite Luna!",
     },
     "target-1": {
-      modelUrl: "./models/b_hamto_dong.glb",
+      modelUrl: "./models/LUNA.glb",
       imageUrl: "./markers_img/RE(4).webp",
       scale: "0.17 0.17 0.17",
       modelRotation: "0 0 0",
-      modelPosition: "-0.20 0 0.25", //x y z
-      displayText: "I am a Hamster.",
+      modelPosition: "0 0 0.25", //x| y_ z.
+      displayText: "Meow. I’ll bring milk!",
     },
     "target-2": {
-      modelUrl: "./models/con_ca.glb",
-      imageUrl: "./markers_img/RE(5).webp",
+      modelUrl: "./models/LOUIS.glb",
+      // imageUrl: "./markers_img/RE(5).webp",
       scale: "0.2 0.2 0.2",
-      modelRotation: "20 90 90",
-      modelPosition: "-0.20 0 0.25", //x y z
-      displayText: "I am Goldie.",
+      modelRotation: "0 0 0",
+      modelPosition: "0 0 0.25", //x y z
+      displayText: "My carrots are good to go!",
+    },
+    "target-3": {
+      modelUrl: "./models/ANNE.glb",
+      // imageUrl: "./markers_img/RE(5).webp",
+      scale: "0.2 0.2 0.2",
+      modelRotation: "0 0 0",
+      modelPosition: "0 0 0.25", //x y z
+      displayText: "Of course I am! Are sunflower seeds good enough?",
+    },
+    "target-4": {
+      modelUrl: "./models/TONY.glb",
+      // imageUrl: "./markers_img/RE(5).webp",
+      scale: "0.2 0.2 0.2",
+      modelRotation: "0 0 0",
+      modelPosition: "0 0 0.25", //x y z
+      displayText: "I’ll get my algae then.",
     },
   };
 
