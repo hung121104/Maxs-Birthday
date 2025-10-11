@@ -1,5 +1,5 @@
 // Configuration
-const USAGE_LIMIT_MINUTES = 45;
+const USAGE_LIMIT_MINUTES = 5;
 const LOCKOUT_MINUTES = 0.5;
 const USAGE_LIMIT_MS = USAGE_LIMIT_MINUTES * 60 * 1000;
 
